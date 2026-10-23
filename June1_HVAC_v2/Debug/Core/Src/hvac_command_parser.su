@@ -1,0 +1,4 @@
+../Core/Src/hvac_command_parser.c:24:13:log_invalid_command	16	static
+../Core/Src/hvac_command_parser.c:35:6:command_parser_init	4	static
+../Core/Src/hvac_command_parser.c:44:6:command_parser_process	16	static
+../Core/Src/hvac_command_parser.c:65:9:command_parser_get_latest	16	static
