@@ -1,0 +1,8 @@
+../Core/Src/hvac_flap_control.c:20:13:uart_log	16	static
+../Core/Src/hvac_flap_control.c:25:13:log_motor_direction	16	static
+../Core/Src/hvac_flap_control.c:33:13:log_motor_stop	8	static
+../Core/Src/hvac_flap_control.c:38:13:log_adc	64	static
+../Core/Src/hvac_flap_control.c:45:13:log_led	64	static
+../Core/Src/hvac_flap_control.c:52:6:flap_control_init	4	static
+../Core/Src/hvac_flap_control.c:62:6:flap_control_set_target	16	static
+../Core/Src/hvac_flap_control.c:67:6:flap_control_process	16	static
