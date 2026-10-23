@@ -1,0 +1,2 @@
+../Core/Src/hvac_led_status.c:18:6:led_status_init	16	static
+../Core/Src/hvac_led_status.c:31:6:led_status_update	16	static

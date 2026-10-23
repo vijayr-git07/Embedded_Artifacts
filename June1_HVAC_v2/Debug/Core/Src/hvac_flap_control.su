@@ -1,0 +1,4 @@
+../Core/Src/hvac_flap_control.c:33:13:log_uart	16	static
+../Core/Src/hvac_flap_control.c:38:6:flap_control_init	4	static
+../Core/Src/hvac_flap_control.c:53:6:flap_control_set_target	16	static
+../Core/Src/hvac_flap_control.c:58:6:flap_control_process	80	static
