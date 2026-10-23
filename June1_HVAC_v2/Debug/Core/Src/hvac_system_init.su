@@ -1,0 +1,2 @@
+../Core/Src/hvac_system_init.c:11:13:log_uart	16	static
+../Core/Src/hvac_system_init.c:16:6:system_init	16	static
