@@ -1,0 +1,8 @@
+../Core/Src/hvac_flap_control.c:26:13:log_once	16	static
+../Core/Src/hvac_flap_control.c:31:13:log_mode_name	80	static
+../Core/Src/hvac_flap_control.c:40:13:log_motor_start	16	static
+../Core/Src/hvac_flap_control.c:49:13:log_motor_stop	8	static
+../Core/Src/hvac_flap_control.c:54:13:log_adc_value	64	static
+../Core/Src/hvac_flap_control.c:61:13:log_led_on	64	static
+../Core/Src/hvac_flap_control.c:72:6:flap_control_init	4	static
+../Core/Src/hvac_flap_control.c:82:6:flap_control_process	16	static

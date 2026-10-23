@@ -1,0 +1,2 @@
+../Core/Src/hvac_app.c:14:6:hvac_app_init	16	static
+../Core/Src/hvac_app.c:26:6:hvac_app_task	8	static

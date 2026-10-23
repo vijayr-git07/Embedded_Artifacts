@@ -1,0 +1,6 @@
+../Core/Src/hvac_command_parser.c:14:23:parse_uart_char	16	static
+../Core/Src/hvac_command_parser.c:27:6:command_parser_init	4	static
+../Core/Src/hvac_command_parser.c:35:6:command_parser_process	24	static
+../Core/Src/hvac_command_parser.c:60:16:command_parser_get_latest	4	static
+../Core/Src/hvac_command_parser.c:68:9:command_parser_is_new	4	static
+../Core/Src/hvac_command_parser.c:73:6:command_parser_clear_new_flag	4	static
