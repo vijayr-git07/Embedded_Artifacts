@@ -1,0 +1,7 @@
+../Core/Src/hvac_feedback_processor.c:41:16:map_adc_to_position	24	static
+../Core/Src/hvac_feedback_processor.c:51:16:is_adc_in_stop_window	16	static
+../Core/Src/hvac_feedback_processor.c:57:6:feedback_processor_init	4	static
+../Core/Src/hvac_feedback_processor.c:64:6:feedback_processor_update	16	static
+../Core/Src/hvac_feedback_processor.c:84:9:feedback_processor_get_position	24	static
+../Core/Src/hvac_feedback_processor.c:92:9:feedback_processor_is_valid	4	static
+../Core/Src/hvac_feedback_processor.c:98:9:feedback_processor_is_in_stop_window	16	static
