@@ -1,0 +1,4 @@
+../Core/Src/hvac_motor_driver.c:19:6:motor_driver_init	8	static
+../Core/Src/hvac_motor_driver.c:29:6:motor_driver_set_direction	16	static
+../Core/Src/hvac_motor_driver.c:43:6:motor_driver_enable	8	static
+../Core/Src/hvac_motor_driver.c:51:6:motor_driver_stop	8	static

@@ -1,0 +1,9 @@
+../Core/Src/hvac_flap_control.c:28:13:log_once	1
+../Core/Src/hvac_flap_control.c:33:13:log_mode_ack	1
+../Core/Src/hvac_flap_control.c:40:13:log_motor_moving	2
+../Core/Src/hvac_flap_control.c:46:13:log_motor_target_reached	1
+../Core/Src/hvac_flap_control.c:51:13:log_sensor_adc	1
+../Core/Src/hvac_flap_control.c:58:13:log_led_on	1
+../Core/Src/hvac_flap_control.c:65:6:flap_control_init	1
+../Core/Src/hvac_flap_control.c:76:6:flap_control_process	16
+../Core/Src/hvac_flap_control.c:154:6:flap_control_set_target	2

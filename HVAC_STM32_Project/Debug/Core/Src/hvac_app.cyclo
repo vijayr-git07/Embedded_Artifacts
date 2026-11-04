@@ -1,0 +1,2 @@
+../Core/Src/hvac_app.c:9:6:hvac_app_init	1
+../Core/Src/hvac_app.c:14:6:hvac_app_task	1
