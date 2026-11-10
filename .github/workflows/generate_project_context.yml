@@ -40,21 +40,32 @@ jobs:
           sudo apt-get install -y libclang-dev
 
       - name: Locate LibClang shared library
-        id: libclang
         shell: bash
         run: |
-          LIBCLANG=$(ldconfig -p | awk '/libclang\.so/{print $NF; exit}')
+          LIBCLANG=$(ldconfig -p | awk '$1 ~ /^libclang(-[0-9]+)?\.so/ {print $NF; exit}')
+
           if [ -z "$LIBCLANG" ]; then
-            LIBCLANG=$(find -L /usr/lib -name 'libclang.so' -print -quit)
+            for candidate in \
+              /usr/lib/llvm-*/lib/libclang.so \
+              /usr/lib/llvm-*/lib/libclang-*.so* \
+              /usr/lib/x86_64-linux-gnu/libclang*.so*; do
+
+              if [ -f "$candidate" ]; then
+                LIBCLANG="$candidate"
+                break
+              fi
+            done
           fi
 
           if [ -z "$LIBCLANG" ]; then
-            echo "Could not locate libclang.so"
+            echo "ERROR: LibClang shared library not found."
             exit 1
           fi
 
           echo "LIBCLANG_PATH=$LIBCLANG" >> "$GITHUB_ENV"
-          echo "Using LibClang: $LIBCLANG"
+          echo "Found LibClang: $LIBCLANG"
+
+          python -c 'import ctypes,sys; ctypes.CDLL(sys.argv[1])' "$LIBCLANG"
 
       - name: Install Python dependencies
         working-directory: reverse_engineering
