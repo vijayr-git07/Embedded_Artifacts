@@ -1,0 +1,3 @@
+# Python bindings for LLVM/Clang. The GitHub workflow installs the matching
+# system LibClang shared library and sets LIBCLANG_PATH when needed.
+clang>=14,<19
