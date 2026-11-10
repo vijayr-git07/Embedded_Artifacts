@@ -1,0 +1,444 @@
+{
+    "dependency_graph": {
+        "hvac_app.h": [
+            "stm32f4xx_hal.h"
+        ],
+        "hvac_command_parser.h": [
+            "stm32f4xx_hal.h"
+        ],
+        "hvac_feedback_processor.h": [
+            "stm32f4xx_hal.h"
+        ],
+        "hvac_flap_control.h": [
+            "stm32f4xx_hal.h"
+        ],
+        "hvac_led_status.h": [
+            "stm32f4xx_hal.h"
+        ],
+        "hvac_motor_driver.h": [
+            "stm32f4xx_hal.h"
+        ],
+        "hvac_system_init.h": [
+            "stm32f4xx_hal.h"
+        ],
+        "main.h": [
+            "stm32f4xx_hal.h"
+        ],
+        "hvac_app.c": [
+            "hvac_app.h",
+            "hvac_command_parser.h",
+            "hvac_feedback_processor.h",
+            "hvac_flap_control.h",
+            "hvac_motor_driver.h",
+            "hvac_led_status.h",
+            "hvac_system_init.h"
+        ],
+        "hvac_command_parser.c": [
+            "hvac_command_parser.h"
+        ],
+        "hvac_feedback_processor.c": [
+            "hvac_feedback_processor.h"
+        ],
+        "hvac_flap_control.c": [
+            "hvac_flap_control.h",
+            "hvac_command_parser.h",
+            "hvac_feedback_processor.h",
+            "hvac_motor_driver.h",
+            "hvac_led_status.h"
+        ],
+        "hvac_led_status.c": [
+            "hvac_led_status.h",
+            "hvac_feedback_processor.h"
+        ],
+        "hvac_motor_driver.c": [
+            "hvac_motor_driver.h"
+        ],
+        "hvac_system_init.c": [
+            "hvac_system_init.h",
+            "hvac_command_parser.h",
+            "hvac_feedback_processor.h",
+            "hvac_motor_driver.h",
+            "hvac_led_status.h",
+            "hvac_flap_control.h"
+        ],
+        "main.c": [
+            "main.h",
+            "hvac_app.h"
+        ]
+    },
+    "symbol_ownership": {
+        "functions": {
+            "hvac_app_init": "hvac_app.c",
+            "hvac_app_task": "hvac_app.c",
+            "log_invalid_command": "hvac_command_parser.c",
+            "command_parser_init": "hvac_command_parser.c",
+            "command_parser_process": "hvac_command_parser.c",
+            "command_parser_get_latest": "hvac_command_parser.c",
+            "map_adc_to_position": "hvac_feedback_processor.c",
+            "is_adc_in_precise_window": "hvac_feedback_processor.c",
+            "feedback_processor_init": "hvac_feedback_processor.c",
+            "feedback_processor_update": "hvac_feedback_processor.c",
+            "feedback_processor_get_position": "hvac_feedback_processor.c",
+            "feedback_processor_is_valid": "hvac_feedback_processor.c",
+            "feedback_processor_is_in_precise_window": "hvac_feedback_processor.c",
+            "log_once": "hvac_flap_control.c",
+            "log_mode_ack": "hvac_flap_control.c",
+            "log_motor_moving": "hvac_flap_control.c",
+            "log_motor_target_reached": "hvac_flap_control.c",
+            "log_sensor_adc": "hvac_flap_control.c",
+            "log_led_on": "hvac_flap_control.c",
+            "flap_control_init": "hvac_flap_control.c",
+            "flap_control_process": "hvac_flap_control.c",
+            "flap_control_set_target": "hvac_flap_control.c",
+            "led_status_init": "hvac_led_status.c",
+            "led_status_update": "hvac_led_status.c",
+            "motor_driver_init": "hvac_motor_driver.c",
+            "motor_driver_set_direction": "hvac_motor_driver.c",
+            "motor_driver_enable": "hvac_motor_driver.c",
+            "motor_driver_stop": "hvac_motor_driver.c",
+            "system_init": "hvac_system_init.c",
+            "main": "main.c",
+            "SystemClock_Config": "main.c",
+            "MX_ADC1_Init": "main.c",
+            "MX_I2S3_Init": "main.c",
+            "MX_TIM3_Init": "main.c",
+            "MX_USART2_UART_Init": "main.c",
+            "MX_USB_OTG_FS_USB_Init": "main.c",
+            "MX_GPIO_Init": "main.c",
+            "Error_Handler": "main.c"
+        }
+    },
+    "interface_contracts": {
+        "hvac_app_init": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "hvac_app_task": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "command_parser_init": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "command_parser_process": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "command_parser_get_latest": {
+            "return_type": "uint8_t",
+            "parameters": [
+                {
+                    "name": "out_position",
+                    "type": "uint8_t *"
+                },
+                {
+                    "name": "out_is_new",
+                    "type": "uint8_t *"
+                }
+            ]
+        },
+        "feedback_processor_init": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "feedback_processor_update": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "feedback_processor_get_position": {
+            "return_type": "uint8_t",
+            "parameters": [
+                {
+                    "name": "out_position",
+                    "type": "uint8_t *"
+                },
+                {
+                    "name": "out_adc",
+                    "type": "uint16_t *"
+                },
+                {
+                    "name": "out_valid",
+                    "type": "uint8_t *"
+                }
+            ]
+        },
+        "feedback_processor_is_valid": {
+            "return_type": "uint8_t",
+            "parameters": []
+        },
+        "flap_control_init": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "flap_control_process": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "flap_control_set_target": {
+            "return_type": "void",
+            "parameters": [
+                {
+                    "name": "position",
+                    "type": "uint8_t"
+                }
+            ]
+        },
+        "led_status_init": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "led_status_update": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "motor_driver_init": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "motor_driver_set_direction": {
+            "return_type": "void",
+            "parameters": [
+                {
+                    "name": "direction",
+                    "type": "uint8_t"
+                }
+            ]
+        },
+        "motor_driver_enable": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "motor_driver_stop": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "system_init": {
+            "return_type": "void",
+            "parameters": []
+        },
+        "HAL_TIM_MspPostInit": {
+            "return_type": "void",
+            "parameters": [
+                {
+                    "name": "htim",
+                    "type": "TIM_HandleTypeDef *"
+                }
+            ]
+        },
+        "Error_Handler": {
+            "return_type": "void",
+            "parameters": []
+        }
+    },
+    "call_graph": {
+        "hvac_app_init": [
+            "system_init"
+        ],
+        "hvac_app_task": [
+            "command_parser_process",
+            "feedback_processor_update",
+            "flap_control_process",
+            "led_status_update"
+        ],
+        "log_invalid_command": [],
+        "command_parser_init": [],
+        "command_parser_process": [
+            "log_invalid_command"
+        ],
+        "command_parser_get_latest": [],
+        "map_adc_to_position": [],
+        "is_adc_in_precise_window": [],
+        "feedback_processor_init": [],
+        "feedback_processor_update": [
+            "map_adc_to_position"
+        ],
+        "feedback_processor_get_position": [],
+        "feedback_processor_is_valid": [],
+        "feedback_processor_is_in_precise_window": [
+            "is_adc_in_precise_window"
+        ],
+        "log_once": [],
+        "log_mode_ack": [
+            "log_once"
+        ],
+        "log_motor_moving": [
+            "log_once"
+        ],
+        "log_motor_target_reached": [
+            "log_once"
+        ],
+        "log_sensor_adc": [
+            "log_once"
+        ],
+        "log_led_on": [
+            "log_once"
+        ],
+        "flap_control_init": [],
+        "flap_control_process": [
+            "command_parser_get_latest",
+            "feedback_processor_get_position",
+            "motor_driver_stop",
+            "log_mode_ack",
+            "log_motor_target_reached",
+            "log_sensor_adc",
+            "log_led_on",
+            "log_motor_moving",
+            "motor_driver_set_direction",
+            "motor_driver_enable",
+            "feedback_processor_is_in_precise_window"
+        ],
+        "flap_control_set_target": [],
+        "led_status_init": [],
+        "led_status_update": [
+            "feedback_processor_get_position"
+        ],
+        "motor_driver_init": [],
+        "motor_driver_set_direction": [],
+        "motor_driver_enable": [],
+        "motor_driver_stop": [],
+        "system_init": [
+            "command_parser_init",
+            "feedback_processor_init",
+            "motor_driver_init",
+            "led_status_init",
+            "flap_control_init",
+            "feedback_processor_update",
+            "led_status_update"
+        ],
+        "main": [
+            "SystemClock_Config",
+            "MX_GPIO_Init",
+            "MX_ADC1_Init",
+            "MX_TIM3_Init",
+            "MX_USART2_UART_Init",
+            "MX_I2S3_Init",
+            "MX_USB_OTG_FS_USB_Init",
+            "hvac_app_init",
+            "hvac_app_task"
+        ],
+        "SystemClock_Config": [
+            "Error_Handler"
+        ],
+        "MX_ADC1_Init": [
+            "Error_Handler"
+        ],
+        "MX_I2S3_Init": [
+            "Error_Handler"
+        ],
+        "MX_TIM3_Init": [
+            "Error_Handler"
+        ],
+        "MX_USART2_UART_Init": [
+            "Error_Handler"
+        ],
+        "MX_USB_OTG_FS_USB_Init": [],
+        "MX_GPIO_Init": [],
+        "Error_Handler": []
+    },
+    "shared_state_map": {
+        "huart2": {
+            "defined_in": "main.c",
+            "type": "UART_HandleTypeDef",
+            "used_by": [
+                "hvac_command_parser.c",
+                "hvac_flap_control.c",
+                "hvac_system_init.c"
+            ]
+        },
+        "hadc1": {
+            "defined_in": "main.c",
+            "type": "ADC_HandleTypeDef",
+            "used_by": [
+                "hvac_feedback_processor.c"
+            ]
+        },
+        "last_feedback_valid": {
+            "defined_in": "hvac_led_status.c",
+            "type": "uint8_t",
+            "used_by": [
+                "hvac_flap_control.c"
+            ]
+        },
+        "htim3": {
+            "defined_in": "main.c",
+            "type": "TIM_HandleTypeDef",
+            "used_by": [
+                "hvac_motor_driver.c"
+            ]
+        }
+    },
+    "protected_regions": {
+        "user_code_regions": {
+            "main.h": [
+                "USER CODE BEGIN Header",
+                "USER CODE BEGIN Includes",
+                "USER CODE BEGIN ET",
+                "USER CODE BEGIN EC",
+                "USER CODE BEGIN EM",
+                "USER CODE BEGIN EFP",
+                "USER CODE BEGIN Private defines"
+            ],
+            "main.c": [
+                "USER CODE BEGIN Header",
+                "USER CODE BEGIN Includes",
+                "USER CODE BEGIN PTD",
+                "USER CODE BEGIN PD",
+                "USER CODE BEGIN PM",
+                "USER CODE BEGIN PV",
+                "USER CODE BEGIN PFP",
+                "USER CODE BEGIN 0",
+                "USER CODE BEGIN 1",
+                "USER CODE BEGIN Init",
+                "USER CODE BEGIN SysInit",
+                "USER CODE BEGIN 2",
+                "USER CODE BEGIN WHILE",
+                "USER CODE BEGIN 3",
+                "USER CODE BEGIN ADC1_Init 0",
+                "USER CODE BEGIN ADC1_Init 1",
+                "USER CODE BEGIN ADC1_Init 2",
+                "USER CODE BEGIN I2S3_Init 0",
+                "USER CODE BEGIN I2S3_Init 1",
+                "USER CODE BEGIN I2S3_Init 2",
+                "USER CODE BEGIN TIM3_Init 0",
+                "USER CODE BEGIN TIM3_Init 1",
+                "USER CODE BEGIN TIM3_Init 2",
+                "USER CODE BEGIN USART2_Init 0",
+                "USER CODE BEGIN USART2_Init 1",
+                "USER CODE BEGIN USART2_Init 2",
+                "USER CODE BEGIN USB_OTG_FS_Init 0",
+                "USER CODE BEGIN USB_OTG_FS_Init 1",
+                "USER CODE BEGIN USB_OTG_FS_Init 2",
+                "USER CODE BEGIN MX_GPIO_Init_1",
+                "USER CODE BEGIN MX_GPIO_Init_2",
+                "USER CODE BEGIN 4",
+                "USER CODE BEGIN Error_Handler_Debug",
+                "USER CODE BEGIN 6"
+            ]
+        },
+        "generated_functions": {
+            "main.c": [
+                "MX_ADC1_Init",
+                "MX_GPIO_Init",
+                "MX_I2S3_Init",
+                "MX_TIM3_Init",
+                "MX_USART2_UART_Init",
+                "MX_USB_OTG_FS_USB_Init"
+            ]
+        }
+    },
+    "peripheral_ownership": {
+        "huart2": {
+            "type": "USART",
+            "owner": "main.c"
+        },
+        "hadc1": {
+            "type": "ADC",
+            "owner": "main.c"
+        },
+        "htim3": {
+            "type": "TIM",
+            "owner": "main.c"
+        }
+    }
+}
