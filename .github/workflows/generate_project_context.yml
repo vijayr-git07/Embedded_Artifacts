@@ -1,0 +1,85 @@
+name: Generate Embedded Project Context
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+    paths:
+      - 'HVAC_STM32_Project/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generate-project-context-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate-context:
+    name: Extract STM32 Project Context
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: reverse_engineering/requirements.txt
+
+      - name: Install system LibClang
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libclang-dev
+
+      - name: Locate LibClang shared library
+        id: libclang
+        shell: bash
+        run: |
+          LIBCLANG=$(ldconfig -p | awk '/libclang\.so/{print $NF; exit}')
+          if [ -z "$LIBCLANG" ]; then
+            LIBCLANG=$(find -L /usr/lib -name 'libclang.so' -print -quit)
+          fi
+
+          if [ -z "$LIBCLANG" ]; then
+            echo "Could not locate libclang.so"
+            exit 1
+          fi
+
+          echo "LIBCLANG_PATH=$LIBCLANG" >> "$GITHUB_ENV"
+          echo "Using LibClang: $LIBCLANG"
+
+      - name: Install Python dependencies
+        working-directory: reverse_engineering
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate consolidated project context
+        working-directory: reverse_engineering
+        env:
+          PROJECT_PATH: ../HVAC_STM32_Project
+          CONTEXT_OUTPUT: ../project_context/context.json
+        run: |
+          python generate_context.py
+
+      - name: Commit updated context
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add project_context/context.json
+
+          if git diff --cached --quiet; then
+            echo "Project context is unchanged. No commit required."
+          else
+            git commit -m "Update generated project context"
+            git push
+          fi
